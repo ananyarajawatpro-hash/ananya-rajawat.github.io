@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ananya Rajawat – Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F9F7F3;
+  --white:#FFFFFF;
+  --ink:#1C1917;
+  --ink-mid:#4C4845;
+  --ink-soft:#8A8784;
+  --accent:#1E4D3F;
+  --accent-mid:#2D6B59;
+  --accent-pale:#EAF2EF;
+  --accent-pale2:#D4E8E2;
+  --gold:#8A6A2A;
+  --gold-pale:#F5EDDA;
+  --border:#E3DED8;
+  --tag:#F0EDE8;
+}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);max-width:780px;margin:0 auto;padding:52px 36px 88px;font-size:15px;line-height:1.75}
+
+.header{margin-bottom:48px}
+.header-band{display:flex;align-items:flex-start;gap:20px;margin-bottom:24px}
+.avatar{width:60px;height:60px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:21px;flex-shrink:0;letter-spacing:1px}
+.name-block h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:400;letter-spacing:-0.3px;line-height:1.1;color:var(--ink);margin-bottom:5px}
+.tagline{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-mid);font-weight:500}
+.summary{font-size:14.5px;color:var(--ink-mid);line-height:1.8;max-width:600px;border-left:2.5px solid var(--accent-pale2);padding-left:16px;margin-bottom:22px}
+.contact-row{display:flex;flex-wrap:wrap;gap:6px}
+.contact-pill{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-mid);background:var(--white);border:1px solid var(--border);border-radius:20px;padding:5px 13px;text-decoration:none}
+.contact-pill:hover{border-color:var(--accent-mid);color:var(--accent)}
+.contact-pill i{font-size:14px;color:var(--accent-mid)}
+
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:36px 0 52px}
+.metric{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 18px;text-align:center;position:relative;overflow:hidden}
+.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.metric-num{font-family:'Playfair Display',serif;font-size:30px;color:var(--accent);display:block;font-weight:600}
+.metric-label{font-size:11.5px;color:var(--ink-soft);margin-top:3px;line-height:1.4}
+
+section{margin-bottom:52px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.section-label{font-size:10.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.section-line{flex:1;height:1px;background:var(--border)}
+
+.exp-item{padding:22px 0;border-bottom:1px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:4px;flex-wrap:wrap}
+.exp-role{font-size:15px;font-weight:500;color:var(--ink)}
+.exp-company{font-size:13px;color:var(--accent-mid);font-weight:500;margin-top:3px}
+.exp-date{font-size:12px;color:var(--ink-soft);white-space:nowrap;background:var(--tag);border:1px solid var(--border);border-radius:20px;padding:3px 10px;flex-shrink:0}
+.exp-bullets{margin-top:10px;list-style:none;padding:0}
+.exp-bullets li{font-size:13.5px;color:var(--ink-mid);padding:3px 0 3px 18px;position:relative}
+.exp-bullets li::before{content:'›';position:absolute;left:0;color:var(--accent-mid);font-size:16px;line-height:1.4}
+.stat{color:var(--accent);font-weight:500}
+
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.skill-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+.skill-group-title{font-size:12px;font-weight:500;color:var(--ink-soft);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;background:var(--accent-pale);color:var(--accent);padding:4px 11px;border-radius:20px;font-weight:400}
+
+.edu-item{padding:20px 0;border-bottom:1px solid var(--border)}
+.edu-item:last-child{border-bottom:none}
+.edu-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.edu-degree{font-size:15px;font-weight:500;color:var(--ink)}
+.edu-school{font-size:13px;color:var(--accent-mid);margin-top:3px;font-weight:500}
+.edu-badge{font-size:11.5px;background:var(--gold-pale);color:var(--gold);padding:4px 11px;border-radius:20px;white-space:nowrap;font-weight:500}
+.edu-detail{font-size:13.5px;color:var(--ink-mid);margin-top:8px;line-height:1.7}
+
+.award-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.award-item:last-child{border-bottom:none}
+.award-icon{width:36px;height:36px;border-radius:9px;background:var(--gold-pale);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.award-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px}
+.award-text{font-size:13px;color:var(--ink-mid)}
+
+.cert-row{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid var(--border)}
+.cert-row:last-child{border-bottom:none}
+.cert-name{font-size:14px;font-weight:500;color:var(--ink)}
+.cert-issuer{font-size:12px;color:var(--ink-soft);margin-top:2px}
+.cert-date{font-size:12px;color:var(--ink-soft);background:var(--tag);border:1px solid var(--border);border-radius:20px;padding:3px 10px;flex-shrink:0}
+
+.footer{border-top:1px solid var(--border);padding-top:24px;text-align:center;font-size:12px;color:var(--ink-soft);margin-top:8px}
+.footer a{color:var(--accent-mid);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-band">
+    <div class="avatar">AR</div>
+    <div class="name-block">
+      <h1>Ananya Rajawat</h1>
+      <div class="tagline">Business Analytics &amp; Project Management</div>
+    </div>
+  </div>
+  <p class="summary">MSc candidate at the University of Southampton specialising in Risk Management and Behavioural Operations. Experienced in end-to-end project delivery, data-driven decision-making, and stakeholder management across consulting and operational environments. Proven track record of delivering 15–25% measurable performance improvements.</p>
+  <div class="contact-row">
+    <a class="contact-pill" href="mailto:ananyarajawat2801@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i>ananyarajawat2801@gmail.com</a>
+    <a class="contact-pill" href="https://linkedin.com/in/ananya-rajawat" target="_blank"><i class="ti ti-brand-linkedin" aria-hidden="true"></i>LinkedIn</a>
+    <span class="contact-pill"><i class="ti ti-map-pin" aria-hidden="true"></i>Southampton, UK</span>
+    <span class="contact-pill"><i class="ti ti-phone" aria-hidden="true"></i>07818 991785</span>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metric">
+    <span class="metric-num">25%</span>
+    <span class="metric-label">Max sales uplift delivered</span>
+  </div>
+  <div class="metric">
+    <span class="metric-num">5+</span>
+    <span class="metric-label">Roles across consulting &amp; PM</span>
+  </div>
+  <div class="metric">
+    <span class="metric-num">200+</span>
+    <span class="metric-label">Students represented as course rep</span>
+  </div>
+</div>
+
+<section>
+  <div class="section-header"><span class="section-label">Experience</span><div class="section-line"></div></div>
+
+  <div class="exp-item">
+    <div class="exp-top">
+      <div><div class="exp-role">Project Manager</div><div class="exp-company">Zervio · United Kingdom</div></div>
+      <span class="exp-date">Apr 2026 – Jun 2026</span>
+    </div>
+    <ul class="exp-bullets">
+      <li>Led cross-functional project delivery ensuring on-time completion against defined KPIs using Agile sprint frameworks.</li>
+      <li>Managed timelines, risk registers, and stakeholder communications across remote teams.</li>
+      <li>Presented project status updates to senior stakeholders, supporting data-driven decisions.</li>
+    </ul>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-top">
+      <div><div class="exp-role">Inventory Management Consultant</div><div class="exp-company">Time Watch Infocom Pvt Ltd · India</div></div>
+      <span class="exp-date">Jun – Jul 2024</span>
+    </div>
+    <ul class="exp-bullets">
+      <li>Designed inventory tracking processes, <span class="stat">reducing resource wastage by 15%</span> and improving stock accuracy.</li>
+      <li>Built Excel dashboards (pivot tables, VLOOKUP) to deliver data-driven optimisation recommendations to senior stakeholders.</li>
+    </ul>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-top">
+      <div><div class="exp-role">Consultancy Assistant</div><div class="exp-company">Hotel Rosewood · India</div></div>
+      <span class="exp-date">Jan – Apr 2024</span>
+    </div>
+    <ul class="exp-bullets">
+      <li>Devised a stock display strategy informed by consumer behaviour analysis, <span class="stat">increasing key product sales by 25%</span>.</li>
+      <li>Collaborated across departments using structured problem-solving and negotiation to resolve client issues.</li>
+    </ul>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-top">
+      <div><div class="exp-role">Consumer Analyst &amp; Project Management Intern</div><div class="exp-company">BCG · Accenture · Cognizant</div></div>
+      <span class="exp-date">Feb – Mar 2024</span>
+    </div>
+    <ul class="exp-bullets">
+      <li>Conducted market research and scenario-based analytical frameworks to support strategic decision-making under uncertainty (BCG).</li>
+      <li>Applied Agile and Waterfall methodologies to sprint planning and iterative team delivery (Accenture &amp; Cognizant).</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="section-header"><span class="section-label">Education</span><div class="section-line"></div></div>
+  <div class="edu-item">
+    <div class="edu-top">
+      <div><div class="edu-degree">MSc Business Analytics &amp; Management Science</div><div class="edu-school">University of Southampton · Sep 2025 – Present</div></div>
+    </div>
+    <div class="edu-detail">Specialising in Risk Management, Project Risk Management, and Behavioural Operations. Applied R and AnyLogic to model supply chain disruptions using Monte Carlo simulation and VaR/CVaR methods.</div>
+  </div>
+  <div class="edu-item">
+    <div class="edu-top">
+      <div><div class="edu-degree">Bachelor of Business Administration</div><div class="edu-school">Harcourt Butler Technical University · Oct 2022 – May 2025</div></div>
+      <span class="edu-badge">Best Research Report</span>
+    </div>
+    <div class="edu-detail">Dissertation: <em>"How Personality Influences Consumer Shopping Behaviour"</em> — awarded Best Research Report in the BBA cohort. Course Representative for 200+ students.</div>
+  </div>
+</section>
+
+<section>
+  <div class="section-header"><span class="section-label">Skills</span><div class="section-line"></div></div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-group-title">Technical &amp; Data</div>
+      <div class="tags">
+        <span class="tag">R (ggplot2, dplyr)</span><span class="tag">SQL</span><span class="tag">Python</span>
+        <span class="tag">Power BI</span><span class="tag">Advanced Excel</span><span class="tag">Tableau</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-group-title">Simulation &amp; Risk</div>
+      <div class="tags">
+        <span class="tag">AnyLogic</span><span class="tag">Monte Carlo</span><span class="tag">VaR / CVaR</span>
+        <span class="tag">Risk Registers</span><span class="tag">Stochastic Modelling</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-group-title">Project Management</div>
+      <div class="tags">
+        <span class="tag">Agile / Scrum</span><span class="tag">Waterfall</span><span class="tag">Stakeholder Mgmt</span>
+        <span class="tag">KPI Tracking</span><span class="tag">Gantt Charts</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-group-title">Languages</div>
+      <div class="tags">
+        <span class="tag">Hindi (Native)</span><span class="tag">English C1</span><span class="tag">IELTS 7.0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-header"><span class="section-label">Certifications</span><div class="section-line"></div></div>
+  <div class="cert-row">
+    <div><div class="cert-name">Google Project Management Certificate</div><div class="cert-issuer">Google</div></div>
+    <span class="cert-date">Dec 2023</span>
+  </div>
+  <div class="cert-row">
+    <div><div class="cert-name">Connected Leadership Certification</div><div class="cert-issuer">Yale University</div></div>
+    <span class="cert-date">Dec 2023</span>
+  </div>
+</section>
+
+<section>
+  <div class="section-header"><span class="section-label">Awards &amp; Recognition</span><div class="section-line"></div></div>
+  <div class="award-item">
+    <div class="award-icon"><i class="ti ti-award" aria-hidden="true"></i></div>
+    <div>
+      <div class="award-title">Best Research Report – BBA Cohort</div>
+      <div class="award-text">Harcourt Butler Technical University — recognised for dissertation on consumer personality and purchasing behaviour.</div>
+    </div>
+  </div>
+  <div class="award-item">
+    <div class="award-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+    <div>
+      <div class="award-title">Outstanding Leadership Recognition</div>
+      <div class="award-text">Course Representative managing faculty-student liaison for 200+ students.</div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">Ananya Rajawat &nbsp;·&nbsp; Southampton, UK &nbsp;·&nbsp; <a href="mailto:ananyarajawat2801@gmail.com">ananyarajawat2801@gmail.com</a></div>
+
+</body>
+</html>
